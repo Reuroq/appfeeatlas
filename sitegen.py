@@ -462,25 +462,36 @@ def landing():
     feat_states = "".join(f'<a class="card" href="/states/{esc(s["slug"])}"><h3>{esc(s["state"])}</h3>'
                           f'<p>{esc(M.the_legal_line(s))}</p></a>' for s in A.states_with_law()[:6])
     body = f"""
-<section class="hero">
-  <span class="eyebrow">Free &middot; on the renter's side</span>
-  <h1>That application fee is <span class="hl">mostly markup</span></h1>
-  <p class="sub">Screening you costs a landlord about ${summ['actual_cost']}. You get charged about ${summ['typical_charged']}. We tell you if it's even legal — and write the letter to get it back.</p>
-  <div class="cta-row"><a class="btn btn-brand" href="/check">Is my fee legal?</a>
-  <a class="btn btn-ghost" href="/markup">See the markup index</a></div>
-  <p class="muted" style="font-size:.85rem;margin-top:12px">Your state + the amount you paid &mdash; instant verdict. Nothing stored.</p>
-</section>
+<div class="hero-grid">
+  <section class="hero">
+    <span class="eyebrow">Free &middot; on the renter's side</span>
+    <h1>That application fee is <span class="hl">mostly markup</span>.</h1>
+    <p class="sub">Screening you costs a landlord about ${summ['actual_cost']}. You get charged about ${summ['typical_charged']}. We tell you if it's even legal — and write the letter to get it back.</p>
+    <div class="cta-row"><a class="btn btn-brand" href="/check">Is my fee legal?</a>
+    <a class="btn btn-ghost" href="/markup">See the markup index</a></div>
+    <p class="muted" style="font-size:.85rem;margin-top:12px">100% free, no account &middot; your state + the amount &rarr; instant verdict. Nothing stored.</p>
+  </section>
+  <div class="compare">
+    <div class="ct">The real cost vs. what renters pay</div>
+    <div class="pair">
+      <div class="cell"><div class="big">${summ['actual_cost']}</div><div class="cl">Actual screening cost</div></div>
+      <div class="vs">vs</div>
+      <div class="cell charged"><div class="big">${summ['typical_charged']}</div><div class="cl">Typical renter charge</div></div>
+    </div>
+    <div class="gap">The markup gap: ${summ['typical_markup']} ({summ['typical_markup_x']}× the real cost)</div>
+  </div>
+</div>
 <div class="statband">
   <div class="s"><div class="n">${summ['typical_markup']}</div><div class="l">Typical markup per application</div></div>
   <div class="s"><div class="n">{summ['banned']}</div><div class="l">States that ban the fee</div></div>
   <div class="s"><div class="n">{summ['capped']}</div><div class="l">States that cap it</div></div>
-  <div class="s"><div class="n">100%</div><div class="l">Free, no account</div></div>
+  <div class="s"><div class="n">Free</div><div class="l">No account, ever</div></div>
 </div>
 <section class="block"><h2 class="center">How it works</h2>
 <div class="grid cols-3 mt">
-  <div class="card"><h3>1. Check your fee</h3><p>Your state + the amount &rarr; is it within the law, a refundable overcharge, or above your state's cap?</p></div>
-  <div class="card"><h3>2. See the markup</h3><p>We compare it to the ~${summ['actual_cost']} real cost of screening so you know how much is just profit.</p></div>
-  <div class="card"><h3>3. Get it back</h3><p>A statute-cited refund letter, pre-filled, that demands your money and an itemized receipt.</p></div>
+  <a class="card" href="/check"><div class="num">1</div><h3>Is my fee legal?</h3><p>Your state + the amount &rarr; is it within the law, a refundable overcharge, or above your state's cap?</p><div class="meta">Check legally &rarr;</div></a>
+  <a class="card" href="/markup"><div class="num">2</div><h3>The Markup Index</h3><p>See how your fee compares to the ~${summ['actual_cost']} real cost of screening across every state.</p><div class="meta">View your state &rarr;</div></a>
+  <a class="card" href="/letter"><div class="num">3</div><h3>Refund Letter</h3><p>A statute-cited letter, pre-filled, that demands your money back and an itemized receipt.</p><div class="meta">Create your letter &rarr;</div></a>
 </div></section>
 <section class="block"><span class="eyebrow">Original research</span>
 <h2>The Markup Index</h2>
