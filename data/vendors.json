@@ -1,0 +1,27 @@
+{
+  "_about": "The actual wholesale cost of tenant screening, used to compute the markup a landlord adds on top of an application fee. Prices are the landlord/property-side cost of a full screen (credit + criminal + eviction) and move over time — verify before relying on a specific number.",
+  "actual_cost": {
+    "low": 18,
+    "typical": 30,
+    "high": 45,
+    "summary": "A full tenant screen (credit + national criminal + eviction history) wholesale costs a landlord roughly $18–$45 — about $30 in the typical case. A credit-only or background-only check is often $15–$30."
+  },
+  "typical_charged": {
+    "low": 40,
+    "typical": 55,
+    "high": 150,
+    "summary": "Landlords and property managers typically charge applicants $40–$75 (often $50), and some charge $100–$150 — well above what the screen costs them."
+  },
+  "vendors": [
+    {"name": "TransUnion SmartMove", "screen_type": "credit + criminal + eviction", "landlord_cost_low": 25, "landlord_cost_high": 40, "note": "Often billed to the applicant; landlord pays ~$25–$40 per full report."},
+    {"name": "Experian Connect / RentBureau", "screen_type": "credit + background", "landlord_cost_low": 15, "landlord_cost_high": 30, "note": "Credit-focused; background add-ons increase cost."},
+    {"name": "RentPrep", "screen_type": "credit + criminal + eviction", "landlord_cost_low": 19, "landlord_cost_high": 40, "note": "Tiered packages; basic credit/background at the low end."},
+    {"name": "MyRental (CoreLogic)", "screen_type": "credit + criminal + eviction", "landlord_cost_low": 25, "landlord_cost_high": 35, "note": "Per-applicant full screen."},
+    {"name": "Avail / Zillow / Apartments.com tools", "screen_type": "credit + criminal + eviction", "landlord_cost_low": 0, "landlord_cost_high": 40, "note": "Many listing platforms bundle screening; some are free to the landlord, with the applicant charged a flat $35–$55."},
+    {"name": "Direct bureau pull (Experian/Equifax/TransUnion)", "screen_type": "credit only", "landlord_cost_low": 10, "landlord_cost_high": 30, "note": "A single-bureau credit report alone."}
+  ],
+  "context": [
+    "Many large platforms (Zillow, Apartments.com, Avail) let an applicant pay one screening fee and REUSE the report across multiple listings within 30 days — so paying a fresh fee at every property is often unnecessary.",
+    "When a landlord charges every applicant a $50–$75 fee but only screens the one they pick, the fees collected from rejected applicants are pure margin."
+  ]
+}
