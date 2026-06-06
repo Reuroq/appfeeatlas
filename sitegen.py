@@ -52,6 +52,11 @@ def _foot():
             'statute and current figures before acting. &copy; 2026 AppFeeAtlas.</div></div></footer>')
 
 
+GA_SNIPPET = ('<script async src="https://www.googletagmanager.com/gtag/js?id=G-V2TFDHV17H"></script>'
+              '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}'
+              "gtag('js',new Date());gtag('config','G-V2TFDHV17H');</script>")
+
+
 def page(title, desc, path, body, jsonld=None, crumbs=None, og="website"):
     canon = f"{BASE_URL}{path}"
     crumb = ""
@@ -66,7 +71,7 @@ def page(title, desc, path, body, jsonld=None, crumbs=None, og="website"):
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">
 <meta property="og:type" content="{esc(og)}"><meta property="og:url" content="{esc(canon)}">
 <meta property="og:site_name" content="{SITE}"><meta name="twitter:card" content="summary_large_image">
-<meta name="robots" content="index,follow"><link rel="stylesheet" href="/static/css/style.css">{ld}
+<meta name="robots" content="index,follow"><link rel="stylesheet" href="/static/css/style.css">{ld}{GA_SNIPPET}
 </head><body>{_nav()}{crumb}<main class="wrap">{body}</main>{_foot()}</body></html>"""
 
 

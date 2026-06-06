@@ -69,8 +69,12 @@ async def _security_headers(request: Request, call_next):
     resp.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
     resp.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
     resp.headers["Content-Security-Policy"] = (
-        "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; "
-        "img-src 'self' data:; connect-src 'self'; base-uri 'self'; frame-ancestors 'self'")
+        "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; "
+        "style-src 'self' 'unsafe-inline'; "
+        "img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; "
+        "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com "
+        "https://*.analytics.google.com https://www.googletagmanager.com; "
+        "base-uri 'self'; frame-ancestors 'self'")
     return resp
 
 
