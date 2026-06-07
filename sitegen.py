@@ -71,6 +71,12 @@ def page(title, desc, path, body, jsonld=None, crumbs=None, og="website"):
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">
 <meta property="og:type" content="{esc(og)}"><meta property="og:url" content="{esc(canon)}">
 <meta property="og:site_name" content="{SITE}"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="{BASE_URL}/static/img/og-card.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:image" content="{BASE_URL}/static/img/og-card.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/static/img/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicon-180.png">
+<meta name="theme-color" content="#2563eb">
 <meta name="robots" content="index,follow"><link rel="stylesheet" href="/static/css/style.css">{ld}{GA_SNIPPET}
 </head><body>{_nav()}{crumb}<main class="wrap">{body}</main>{_foot()}</body></html>"""
 
