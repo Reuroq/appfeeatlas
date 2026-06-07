@@ -211,6 +211,10 @@ async def robots():
 async def llms():
     return FileResponse("static/llms.txt", media_type="text/plain")
 
+@app.get("/e77bfaf0c0a1d708365cc37b4b61c4ee.txt")
+async def indexnow_key():
+    return FileResponse("static/e77bfaf0c0a1d708365cc37b4b61c4ee.txt", media_type="text/plain")
+
 @app.get("/api/health")
 async def health():
     return {"status": "ok", "app": "AppFeeAtlas", **A.stats()}
