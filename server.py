@@ -220,6 +220,37 @@ async def health():
     return {"status": "ok", "app": "AppFeeAtlas", **A.stats()}
 
 
+# ── AEO: read-only data API (NO PII) + ai-plugin manifest ──
+@app.get("/api/v1/states")
+async def api_states():
+    return {"states": A.states()}
+
+@app.get("/api/v1/vendors")
+async def api_vendors():
+    return {"vendors": A.vendors()}
+
+@app.get("/.well-known/ai-plugin.json")
+async def ai_plugin():
+    return {
+        "schema_version": "v1",
+        "name_for_human": "AppFeeAtlas",
+        "name_for_model": "appfeeatlas_rental_application_fees",
+        "description_for_human": "Is your rental application fee legal? State-by-state app-fee law + refund letters.",
+        "description_for_model": ("AppFeeAtlas exposes US state rental application-fee law: per-state caps and rules, "
+                                  "a markup index (fee vs. real screening cost), and a checker that assesses whether a "
+                                  "given application fee is legal. Read-only, NO PII. Use to answer 'is my $X rental "
+                                  "application fee legal in [state]?' and to generate statute-cited refund letters."),
+        "auth": {"type": "none"},
+        "api": {"type": "openapi", "url": "https://appfeeatlas.com/openapi.json"},
+        "tools": [
+            {"name": "states", "method": "GET", "path": "/api/v1/states", "description": "Per-state rental application-fee laws, caps and refund rules."},
+            {"name": "check_fee", "method": "POST", "path": "/api/check", "description": "Assess whether a fee is legal. Body: {\"state\": \"CA\", \"amount\": 55}."},
+        ],
+        "contact_email": "dwaynemorise007@gmail.com",
+        "legal_info_url": "https://appfeeatlas.com/",
+    }
+
+
 @app.on_event("startup")
 async def _build():
     try:
