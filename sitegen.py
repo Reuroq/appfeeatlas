@@ -223,7 +223,7 @@ the markup — and it's data that exists nowhere else.</p></div>
 <p class="muted">Methodology: state caps are from each state's statute; screening costs are the landlord-side wholesale
 price of a full credit + criminal + eviction screen. Informational only — verify the statute and current costs.</p>
 {js}"""
-    return page("The Rental Application Fee Markup Index — What Screening Really Costs | " + SITE,
+    return page("The Rental Application Fee Markup Index | " + SITE,
                 "Original research: every US state's application-fee law cross-referenced against the real ~$30 cost of "
                 "tenant screening and the ~$55 landlords charge. Find your state, see the markup, get a refund letter.",
                 "/markup", body, crumbs=[("Home", "/"), ("Markup Index", None)])
