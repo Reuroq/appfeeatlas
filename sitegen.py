@@ -331,7 +331,7 @@ function copyLetter(){{navigator.clipboard.writeText(document.getElementById('le
   if(p.get('amount')) document.getElementById('f-amount').value=p.get('amount');
 }})();
 </script>"""
-    return page("Free Application Fee Refund Letter Generator (Statute-Cited) | " + SITE,
+    return page("Free Application Fee Refund Letter Generator | " + SITE,
                 "Generate a free, statute-cited letter demanding a refund of an illegal or marked-up rental application fee, plus an itemized screening receipt. Print, mail, or email.",
                 "/letter", body, crumbs=[("Home", "/"), ("Refund Letter", None)])
 
