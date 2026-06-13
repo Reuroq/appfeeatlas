@@ -150,7 +150,7 @@ def states_hub():
 <p class="sub">Some states ban application fees, some cap them, most don't. Find your state's rule and what it means for you.</p></div>
 <div class="table-wrap"><table><tr><th>State</th><th>Rule</th><th>The legal line</th></tr>{rows}</table></div>
 {check_cta()}"""
-    return page("Rental Application Fee Laws by State (2026): Caps, Bans & Refunds | " + SITE,
+    return page("Rental Application Fee Laws by State (2026) | " + SITE,
                 "Every US state's rental application fee rule — which states ban fees, which cap them, and which let landlords charge anything. Plus the real cost of screening.",
                 "/states", body, crumbs=[("Home", "/"), ("By State", None)])
 
